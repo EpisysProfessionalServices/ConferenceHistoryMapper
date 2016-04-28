@@ -1,0 +1,23 @@
+<h3>Shares</h3>
+<table class="u-full-width">
+    <thead>
+        <tr>
+            <th>Share/Loan ID</th>
+            <th>Description</th>
+            <th class="right">Balance</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>              
+        <tr ng-repeat="thisRecord in records">
+            <td >{{ thisRecord.id }}</td>
+            <td >{{ thisRecord.description }}</td>
+            <td class="right"> {{thisRecord.balance}}</td>
+            <td>
+                <a href='/history/{{account}}/{{thisRecord.id}}/'>
+                <button class='btn'>View History</button>
+                </a>
+            </td>
+        </tr>
+    </tbody>
+</table>

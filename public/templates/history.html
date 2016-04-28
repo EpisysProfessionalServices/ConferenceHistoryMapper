@@ -1,0 +1,39 @@
+<div class="row">
+<label>Search:
+    <input ng-model="searchString">
+</label>
+{{records.length}} Transactions Found
+</div>
+<table class="u-full-width">
+    <thead>
+        <tr>
+            <th>Post Date</th>
+            <th>Merchant</th>
+            <th class='right'>Amount</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="thisTransaction in records | filter:searchString">
+            <td>{{ thisTransaction.postdate }}</td>
+            <td>{{ thisTransaction.stmtdesc[0].stmtdesc }}
+                <br>{{thisTransaction.stmtdesc[1].stmtdesc}}</td>
+            <td class="right" ng-class="thisTransaction.actioncode == 'W' ? 'red' : 'green'"> {{thisTransaction.tranamount}}</td>
+            <td>
+                <button class='btn' ng-click="map(thisTransaction.stmtdesc[0].stmtdesc + thisTransaction.stmtdesc[1].stmtdesc)">Map it</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<div id="mapModal" class="modal">
+    <div class="modal-content">
+        <span class="close" ng-click="closeMap()">Close</span>
+        <iframe
+            width="100%"
+            height="600px"
+            frameborder="0" style="border:0"
+            src="{{mapAddress}}" allowfullscreen>
+        </iframe>        
+    </div>
+</div>
