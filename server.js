@@ -35,9 +35,9 @@ app.get('/api/listShares/:id', function (req, res){
             SelectableFields: {
                 ShareSelectableFields: {
                     ShareFields: {
-                        balance: '1',
-                        description: '1',
-                        id: '1'
+                        balance: '1', //capitalize if using v2 of SymXchange
+                        description: '1', //capitalize if using v2 of SymXchange
+                        id: '1' //capitalize if using v2 of SymXchange
                     }
                 }
             }
